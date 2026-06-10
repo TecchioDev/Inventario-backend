@@ -6,7 +6,7 @@ const { parseerror } = require("../funcs");
 
 router.get("/", async (req, res) => {
   try {
-    const result = await pool.query("SELECT * FROM armario");
+    const result = await pool.query("SELECT * FROM armario ORDER BY number ASC");
     res.json(result.rows);
   } catch (err) {
     parseerror(err, res);
