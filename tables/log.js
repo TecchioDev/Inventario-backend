@@ -6,7 +6,7 @@ const { parseerror } = require("../funcs");
 
 router.get("/", async (req, res) => {
   try {
-    const result = await pool.query("SELECT * FROM log");
+    const result = await pool.query("SELECT * FROM log ORDER BY id DESC");
     res.json(result.rows);
   } catch (err) {
     parseerror(err, res);
